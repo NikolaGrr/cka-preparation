@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ngwebappv2
+  labels:
+    app: ngwebappv2
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: ngwebappv2
+  template:
+    metadata:
+      labels:
+        app: ngwebappv2
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.19.0
+        ports:
+        - containerPort: 80

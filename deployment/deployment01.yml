@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ngwebapp
+  labels:
+    app: ngwebapp
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: ngwebapp
+  template:
+    metadata:
+      labels:
+        app: ngwebapp
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.18.0
+        ports:
+        - containerPort: 80

@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: ngwebapplication
+  labels:
+    app: ngwebtest
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      appname: ngwebapp
+  template:
+    metadata:
+      labels:
+        appname: ngwebapp
+    spec:
+      containers:
+      - name: webserver
+        image: nginx
+      - name: logging
+        image: fluentd
